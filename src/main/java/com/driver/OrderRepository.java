@@ -96,12 +96,14 @@ public class OrderRepository {
 
     public void deletePartnerByIdFromDb(String partnerId){
         deliveryPartnerHashMap.remove(partnerId);
-        orderPartnerPair.remove(partnerId);
-        for(String name:partnerOrderPair.keySet()){
-            if(partnerOrderPair.get(name).equals(partnerId)){
-                partnerOrderPair.remove(name);
-            }
-        }
+       if( orderPartnerPair.containsKey(partnerId)) {
+           for (String name : partnerOrderPair.keySet()) {
+               if (partnerOrderPair.get(name).equals(partnerId)) {
+                   partnerOrderPair.remove(name);
+               }
+           }
+           orderPartnerPair.remove(partnerId);
+       }
     }
     public void deleteOrderByIdFromDb(String orderId){
         orderHashMap.remove(orderId);
