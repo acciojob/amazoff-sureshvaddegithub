@@ -4,6 +4,7 @@ public class Order {
 
     private String id;
     private int deliveryTime;
+    private String time;
 
     public Order(String id, String deliveryTime) {
 
@@ -13,6 +14,7 @@ public class Order {
         int MM = Integer.parseInt(deliveryTime.substring(3,5));
         this.id = id;
         this.deliveryTime = HH*60 + MM;
+        this.time = deliveryTime;
     }
 
     public String getId() {
@@ -22,5 +24,9 @@ public class Order {
 
     public int getDeliveryTime() {
         return deliveryTime;
+    }
+
+    public String getTime() {
+        return time;
     }
 }

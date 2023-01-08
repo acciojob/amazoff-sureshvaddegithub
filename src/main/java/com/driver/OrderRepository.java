@@ -91,7 +91,7 @@ public class OrderRepository {
 
     public String getLastDeliveryTimeByPartnerId(String partnerId){
         String name = orderPartnerPair.get(partnerId).get(orderPartnerPair.get(partnerId).size()-1);
-        return String.valueOf(orderHashMap.get(name).getDeliveryTime());
+        return orderHashMap.get(name).getTime();
     }
 
     public void deletePartnerByIdFromDb(String partnerId){
